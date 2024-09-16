@@ -1,72 +1,221 @@
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+// import React from "react";
+import { useTranslation } from "react-i18next";
+import BgImage from "../../assets/bg-slate.png";
+import BlackCoffee from "../../assets/black.png";
+import Navbar from "../Navbar/Navbar";
+import { motion } from "framer-motion";
 
-import imageSoushi from "../../../public/image/img1.png";
-import imageCrovet from "../../../public/image/img2.png";
+import { FaFacebookF } from "react-icons/fa6";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaInstagram } from "react-icons/fa";
+import { useState } from "react";
 
+const bgImage = {
+  backgroundImage: `url(${BgImage})`,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+};
 const Hero = () => {
-  const HeroRef = useRef();
-  const isHeroInView = useInView(HeroRef, { margin: "-100px" });
+  const { t } = useTranslation();
+  const [showSidebar, setShowSidebar] = useState(false);
+
+  const direction = window.document.dir;
+
   return (
-    <section
-      ref={HeroRef}
-      id="home"
-      className="relative mt-28 sml:mt-32 md:mt-36 lg:mt-40   min-h-[50vh] sml:h-[65vh] md:h-[80vh] mdl:h-[85vh] lg:h-[90vh] overflow-x-hidden "
-    >
-      <div className="screenPadding w-full flex flex-col gap-4 md:gap-6 ">
-        <div className="w-[280px] h-[280px] md:w-[380px] md:h-[380px] rounded-full bg-primary/10 absolute -left-48 md:-left-64 lg:left-0 -top-5 "></div>
-        <motion.div
-          initial={{ x: "-1200px", opacity: 0 }}
-          animate={isHeroInView ? { x: 0, opacity: 1 } : {}}
-          transition={{ duration: 1.2 }}
-          className=" w-[140px] h-[140px] sml:w-[220px] sml:h-[220px] md:w-[320px] md:h-[320px] absolute left-0 top-10 -z-50 "
-        >
-          <img
-            src={imageSoushi}
-            alt="image Soushi"
-            className="w-full h-full object-fill object-center"
-          />
-        </motion.div>
+    <main style={bgImage} className="">
+      <section className="min-h-[600px] w-full relative">
+        <div className="container">
+          {/* Navbar sect  */}
+          <Navbar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
 
-        <div className="w-[280px] h-[280px] md:w-[500px] md:h-[500px] rounded-full bg-primary/90 absolute -right-48 md:-right-64 -top-5 -z-10 "></div>
+          {/* <p>{t("navbar.logo")}</p> */}
+          {/* Hero sect  */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center  overflow-hidden">
+            {/* Text content section   */}
+            <div className="text-lightOrange mt-[100px] md:mt-0 p-4 space-y-16">
+              <motion.h1
+                initial={{ opacity: 0, y: -100 }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 10,
+                  delay: 0.8,
+                }}
+                className="text-7xl font-bold leading-tight ml-14 pb-4 max-w-[120px] font-titleAr"
+              >
+                {t("hero.title")}
+              </motion.h1>
+              <motion.div
+                initial={{ opacity: 0, y: 100 }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 10,
+                  delay: 1.2,
+                }}
+                className="relative font-bodyAr"
+              >
+                <div className="relative z-10 space-y-2">
+                  <h1 className="text-2xl font-titleAr">
+                    {" "}
+                    {t("hero.subTitle")}
+                  </h1>
+                  <h1 className="text-sm opacity-55 leading-loose">
+                    {t("hero.desc")}
+                  </h1>
+                </div>
 
-        <motion.div
-          initial={{ x: "1200px", opacity: 0 }}
-          animate={isHeroInView ? { x: 0, opacity: 1 } : {}}
-          transition={{ duration: 1 }}
-          className=" font-arabic text-5xl sm:text-6xl sml:text-7xl md:text-8xl text-dark z-10 "
-        >
-          <h1> المذاق</h1>
-          <h1>الآسيوي</h1>
-          <div className="hidden sm:block sm:w-[60px] sm:h-[60px] sml:w-[90px] sml:h-[90px] md:w-[110px] md:h-[110px] mdl:w-[135px] mdl:h-[135px] absolute right-36 sml:right-48 md:right-60 mdl:right-72 top-0 -z-50">
-            <img
-              src={imageCrovet}
-              alt="image Crovet"
-              className="w-full h-full object-fill object-center"
-            />
+                <div
+                  className={
+                    direction === "rtl"
+                      ? "absolute -top-6 -right-10 w-[320px] h-[200px] bg-darkGray"
+                      : "absolute -top-6 -left-10 w-[320px] h-[200px] bg-lightGray"
+                  }
+                ></div>
+              </motion.div>
+            </div>
+            {/* Hero Image section   */}
+            <div className=" relative">
+              <motion.img
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 10,
+                  delay: 0.4,
+                }}
+                src={BlackCoffee}
+                alt="main Image"
+                className=" relative z-40 h-[400px] md:h-[700px] img-shadow "
+              />
+              <motion.div
+                initial={{ opacity: 0, y: 100 }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 10,
+                  delay: 0.8,
+                }}
+                className=" h-[180px] w-[180px] absolute top-24 -right-16 border-primary rounded-full border-[20px] z-10 "
+              ></motion.div>
+              <div
+                className={
+                  direction === "rtl"
+                    ? "absolute -top-10 right-[200px] z-[1] text-lightGray/40"
+                    : "absolute -top-10 left-[200px] z-[1] text-darkGray/40"
+                }
+              >
+                <motion.h1
+                  initial={{ opacity: 0, x: -100 }}
+                  animate={{
+                    opacity: 1,
+                    x: 0,
+                  }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 10,
+                    delay: 0.8,
+                  }}
+                  className="text-[140px] scale-150 font-bold leading-none"
+                >
+                  {" "}
+                  {t("hero.title")}{" "}
+                </motion.h1>
+              </div>
+            </div>
+            {/* Third hero section   */}
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 100,
+                damping: 10,
+                delay: 1.2,
+              }}
+              className="text-lightOrange mt-[100px] md:mt-0 p-4 space-y-8"
+            >
+              <h1 className="hidden md:block md:opacity-0 text-7xl font-bold leading-tight ml-14 pb-4 max-w-[120px] font-titleAr">
+                {t("hero.title")}
+              </h1>
+              <div className="relative font-bodyAr">
+                <div className="relative z-10 space-y-2">
+                  <h1 className="text-2xl font-titleAr">
+                    {" "}
+                    {t("hero.subTitle")}
+                  </h1>
+                  <h1 className="text-sm opacity-55 leading-loose">
+                    {t("hero.desc")}
+                  </h1>
+                </div>
+
+                <div
+                  className={
+                    direction === "rtl"
+                      ? "absolute -top-6 -left-10 w-[320px] h-[200px] bg-lightGray"
+                      : "absolute -top-6 -right-10 w-[320px] h-[200px] bg-darkGray"
+                  }
+                ></div>
+              </div>
+            </motion.div>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ x: "1200px", opacity: 0 }}
-          animate={isHeroInView ? { x: 0, opacity: 1 } : {}}
-          transition={{ duration: 1.1 }}
-          className=" font-sansArabic text-secondary text-[12px] sm:text-[14px] md:text-[16px] z-20"
-        >
-          <h3>أنقى تجربة السوشي التركيز </h3>
-          <h3> على مكونات الجودة الممتازة</h3>
-        </motion.div>
+        {/* sidebar menu  */}
 
-        <motion.button
-          initial={{ x: "1800px", opacity: 0 }}
-          animate={isHeroInView ? { x: 0, opacity: 1 } : {}}
-          transition={{ duration: 1.2 }}
-          className="px-4 py-2 rounded-full w-full sm:w-[120px] md:w-[160px] xl:w-[200px] text-[12px] md:text-[16px] bg-black text-primary font-sansArabic z-20"
-        >
-          تحقق من القائمة
-        </motion.button>
-      </div>
-    </section>
+        {showSidebar && (
+          <motion.div
+            initial={{ x: "100%" }}
+            whileInView={{ x: 0 }}
+            className={
+              direction === "rtl"
+                ? "absolute top-0 left-0 w-[180px] h-full bg-gradient-to-b from-primary/80 to-primaryDark/80 backdrop-blur-sm z-10"
+                : "absolute top-0 right-0 w-[180px] h-full bg-gradient-to-b from-primary/80 to-primaryDark/80 backdrop-blur-sm z-10"
+            }
+          >
+            <div className="w-full h-full flex justify-center items-center">
+              <div className="flex flex-col justify-center items-center gap-6 text-white">
+                <div className="w-[1px] h-[70px] bg-white "></div>
+                <div className=" inline-block p-2 rounded-full cursor-pointer border border-white">
+                  {" "}
+                  <FaFacebookF className="text-2xl" />{" "}
+                </div>
+                <div className=" inline-block p-2 rounded-full cursor-pointer border border-white">
+                  {" "}
+                  <FaXTwitter className="text-2xl" />{" "}
+                </div>
+                <div className=" inline-block p-2 rounded-full cursor-pointer border border-white">
+                  {" "}
+                  <FaInstagram className="text-2xl" />{" "}
+                </div>
+                <div className="w-[1px] h-[70px] bg-white "></div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </section>
+    </main>
   );
 };
 

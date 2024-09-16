@@ -1,13 +1,27 @@
-import Icons from "./Icons";
-import Links from "./Links";
-import Logo from "./Logo";
+// import React from "react";
+import { FaFacebookF } from "react-icons/fa6";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaInstagram } from "react-icons/fa";
 
-export const Footer = () => {
-  return (
-    <div className="screenPadding overflow-x-hidden py-8 bg-dark flex flex-col mdl:flex-row gap-4 justify-between items-center  min-h-[60px] ">
-      <Logo />
-      <Links />
-      <Icons />
+import creditCards from "../../assets/website/credit-cards.webp";
+import {motion} from "framer-motion"
+
+
+const Footer = () => {
+  return <div className="bg-gradient-to-r from-primary to-primaryDark pt-12 pb-8 text-white">
+    <div className=" container">
+<div className="grid grid-col-1 sm:grid-col-2 md:grid-cols-3 gap-8">
+{/* company details section  */}
+
+{/* footer link section  */}
+
+{/* social link section  */}
+
+</div>
     </div>
-  );
+
+
+  </div>;
 };
+
+export default Footer;
