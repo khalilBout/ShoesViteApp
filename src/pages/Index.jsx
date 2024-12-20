@@ -1,31 +1,30 @@
-// import About from "../component/About/About";
-// import AppSect from "../component/AppSection/AppSect";
-// import DowApp from "../component/DowApp/DowApp";
-// import { Footer } from "../component/Footer/Footer";
 import Hero from "../component/Hero/Hero";
-import Services from "../component/Services/Services";
-import WhereToBuy from "../component/WhereToBuy/WhereToBuy";
-import AppBanner from "../component/AppBanner/AppBanner";
+import About from "../component/About/About";
+import Shop from "../component/Shop/Shop";
+// import Example from "../component/Example/Example";
+import Brand from "../component/Brand/Brand";
+import NewArrivals from "../component/NewArrivals/NewArrivals";
+import Test from "../component/Test/Test";
+import SlidBrand from "../component/SlidBrand/SlidBrand";
 import Footer from "../component/Footer/Footer";
 
-// import MenuFood from "../component/MenuFood/MenuFood";
-// import Reserve from "../component/Reserve/Reserve";
-// import Service from "../component/Service/Service";
+// import Services from "../component/Services/Services";
+// import WhereToBuy from "../component/WhereToBuy/WhereToBuy";
+// import AppBanner from "../component/AppBanner/AppBanner";
+// import Footer from "../component/Footer/Footer";
+// import Lenis from "lenis";
+
 const Index = () => {
   return (
-    <div className=" overflow-x-hidden">
+    <div className="myScrollbar">
       <Hero />
-      <Services />
-      <WhereToBuy />
-      <AppBanner />
+      <About />
+      <Shop />
+      <Test />
+      <Brand />
+      <SlidBrand />
+      <NewArrivals />
       <Footer />
-      {/*<About />
-      <AppSect />
-      <Service />
-      <MenuFood />
-      <Reserve />
-      <DowApp />
-      <Footer /> */}
     </div>
   );
 };

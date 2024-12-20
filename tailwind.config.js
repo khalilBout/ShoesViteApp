@@ -15,8 +15,9 @@ export default {
       //   xl: "1280px",
       // },
       fontFamily: {
-        titleAr: ["Noto Kufi Arabic", "sans-serif"],
-        bodyAr: ["ElMessiri", "sans-serif"],
+        title: ["Kaushan Script", "sans-serif"],
+        body: ["Sirin Stencil", "sans-serif"],
+        arabicFont: ["Amiri", "sans-serif"],
       },
       colors: {
         primary: "#f19509",
@@ -34,5 +35,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")],
 };

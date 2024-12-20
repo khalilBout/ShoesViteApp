@@ -3,14 +3,14 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import HttpApi from "i18next-http-backend";
-// import { useState } from "react";
+import { ReactLenis } from "lenis/dist/lenis-react";
 
 i18n
   .use(initReactI18next)
   .use(LanguageDetector)
   .use(HttpApi)
   .init({
-    fallbackLng: "fr",
+    fallbackLng: "en",
     detection: {
       order: [
         "cookie",
@@ -33,7 +33,15 @@ export default function Root() {
 
   return (
     <>
-      <Outlet />
+      <ReactLenis
+        root
+        options={{
+          lerp: 0.05,
+          // infinite: true,
+        }}
+      >
+        <Outlet />
+      </ReactLenis>
     </>
   );
 }

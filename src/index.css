@@ -1,29 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&family=Markazi+Text:wght@400..700&family=Noto+Naskh+Arabic:wght@400..700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Sirin+Stencil&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@200..1000&family=Fustat:wght@200..800&family=Kaushan+Script&family=Noto+Kufi+Arabic:wght@100..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .screenPadding {
+    @apply px-[16px] sm:px-[32px] md:px-[64px]  xl:px-[140px];
+  }
+  .myScrollbar {
+    @apply scrollbar-thin scrollbar-thumb-teal-500 scrollbar-track-teal-100;
+  }
+}
 
 @layer utilities {
-    .screenPadding {
-      @apply px-[16px] sm:px-[32px] md:px-[64px]  xl:px-[140px] 
-    }
-  
+  .img-shadow {
+    filter: drop-shadow(40px 50px 25px #0f1115);
   }
+  .img-shadow2 {
+    filter: drop-shadow(10px 30px 15px #0f1115);
+  }
+  .input-style {
+    @apply px-4 py-2 border-[1px] border-gray-400 rounded-md;
+  }
+  .primary-btn {
+    @apply bg-primary text-white px-4 py-2 rounded-md hover:bg-primaryDark duration-200;
+  }
+}
 
-  @layer utilities {
-    .img-shadow {
-      filter: drop-shadow(40px 50px 25px #0f1115);
-    }
-    .img-shadow2 {
-      filter: drop-shadow(10px 30px 15px #0f1115);
-    }
-    .input-style {
-      @apply px-4 py-2 border-[1px] border-gray-400 rounded-md
-    }
-    .primary-btn {
-      @apply bg-primary text-white px-4 py-2 rounded-md hover:bg-primaryDark duration-200 
-    }
-  }
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}

@@ -1,0 +1,29 @@
+{
+  "navbar": {
+    "logo": "Beauty Shoses"
+  },
+  "hero": {
+    "subTitle1": "Quality",
+    "subTitle2": "Serves",
+    "subTitle3": "Prices"
+  },
+  "about": {
+    "title": "About Us",
+    "desc1": "Welcome to our enchanting world, where we celebrate the beauty and femininity of every woman. With over 10 years of expertise in the footwear industry, we offer you an unparalleled shopping experience. Every step you take with us is a reflection of your beauty and elegance. We always strive to provide a diverse range of shoes to suit all your occasions and aspirations.",
+    "desc2": "Whether you're looking for sporty shoes for your active adventures, elegant shoes for your special occasions, or comfortable everyday shoes to shine in every day, we guarantee comfort and quality at affordable prices. Our designs are not just shoes; they are works of art that enhance your natural beauty and add a touch of elegance to your look.",
+    "desc3": "Our commitment to quality and comfort is what sets us apart. We carefully select each piece to ensure you feel the utmost comfort and elegance simultaneously, and we always strive to make your shopping experience with us enjoyable and unique.",
+    "desc4": "Enjoy a shopping experience that fulfills all your desires and makes you feel like a queen every moment. We are here to help you shine and radiate with the most beautiful shoes that reflect your personality and elegance."
+  },
+  "ourBrands": {
+    "title": "Our Brands",
+    "desc1": "we proudly offer a curated selection of renowned brands that combine quality and elegant design, such as Clarks, Gianvito Rossi, Steve Madden, Viagevora, and Nike.",
+    "desc2": " Each brand in our store is carefully chosen to ensure luxurious comfort, stylish designs, and affordable prices. We believe that trust is built through quality, so we guarantee that every piece in our store has undergone rigorous testing to meet your expectations and enhance your natural beauty and femininity. We have chosen these brands to provide you with an unforgettable shopping experience and make every step you take filled with elegance and comfort."
+  },
+  "words": {
+    "desc1": "Fashion speaks your style",
+    "desc2": "Step into confidence and charm",
+    "desc3": "A touch of timeless elegance",
+    "desc4": "Make every step a statement",
+    "desc5": "Command attention without a word"
+  }
+}
