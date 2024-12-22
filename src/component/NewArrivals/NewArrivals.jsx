@@ -1,10 +1,54 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import mainImg from "../../assets/Images/1.webp";
+import { useEffect, useRef } from "react";
+import arrowR from "../../assets/rtt.png";
+import { useTranslation } from "react-i18next";
+import video1 from "../../assets/newCol/01.mp4";
+import video2 from "../../assets/newCol/02.mp4";
+import video3 from "../../assets/newCol/03.mp4";
+import { useState } from "react";
 
-import newV from "../../assets/newCol/03.mp4";
+const data = [
+  {
+    id: 1,
+    video: video1,
+    desct:
+      "Our shopping experience is designed to be comfortable and enjoyable, with a specialized team to help you choose the perfect shoes and excellent customer service to ensure your elegance and comfort.",
+    desctAr:
+      "تجربة التسوق في متجرنا مصممة لتكون مريحة وممتعة، مع فريق متخصص يساعدك في اختيار الحذاء المثالي وخدمة عملاء متميزة تضمن لكِ الأناقة والراحة.",
+  },
+  {
+    id: 2,
+    video: video2,
+    desct:
+      "Designed for the modern woman seeking elegance and comfort, made from premium leather, with a medium heel that provides stability all day. Perfect for formal meetings and social events, adding a touch of luxury to your attire.",
+    desctAr:
+      "مصمم للمرأة العصرية التي تسعى للأناقة والراحة، مصنوع من الجلد الفاخر، بكعب متوسط يوفر الاستقرار طوال اليوم. مثالي للاجتماعات الرسمية والمناسبات الاجتماعية، يضفي لمسة من الفخامة على ملابسك.",
+  },
+  {
+    id: 3,
+    video: video3,
+    desct:
+      "Featuring adjustable straps and a comfortable sole, perfect for hot days and summer events. Ensures a unique wearing experience and a lively look all day.",
+    desctAr:
+      "يتميز بأحزمة قابلة للتعديل ونعل مريح، مثالي للأيام الحارة والمناسبات الصيفية. يضمن لكِ تجربة ارتداء مميزة وإطلالة حيوية طوال اليوم.",
+  },
+];
 
 const NewArrivals = () => {
+  const { t } = useTranslation();
+  const direction = window.document.dir;
+
+  const [count, setCount] = useState(0);
+  const [dataDisplay, setDataDisplay] = useState(data[count]);
+  const inc = () => {
+    if (count < 2) {
+      return setCount(count + 1);
+    } else setCount(0);
+  };
+  useEffect(() => {
+    setDataDisplay(data[count]);
+  }, [count]);
+
   const refSec = useRef();
   const { scrollYProgress } = useScroll({
     target: refSec,
@@ -15,29 +59,46 @@ const NewArrivals = () => {
   const textAnimation = useTransform(scrollYProgress, [1, 0], ["20%", "-200%"]);
 
   return (
-    <section
-      ref={refSec}
-      className="overflow-x-hidden min-h-[100vh] relative overflow-hidden"
-    >
-      <div className=" flex justify-center">
-        <motion.h1
-          style={{ x: Anim }}
-          className="text-5xl md:text-6xl lg:text-7xl xl:text-7xl font-title text-black absolute top-0 left-4 z-10"
-        >
-          New Arrivals
-        </motion.h1>
-        <div className="hidden sm:flex w-1/3 h-[100vh] "></div>
-
-        <div className=" relative max-sm:w-full sm:w-2/3 xl:w-1/3 h-[100vh] flex justify-center items-center">
-          {/* image div */}
+    <section ref={refSec} className=" min-h-[100vh] relative overflow-hidden">
+      <motion.h1
+        style={{ x: Anim }}
+        className={`${
+          direction === "rtl" ? " font-arabicFont " : "font-title"
+        } text-5xl md:text-6xl lg:text-7xl xl:text-7xl  text-black absolute top-0 left-4 z-10 `}
+      >
+        {t("newArv.title")}
+      </motion.h1>
+      <div className="flex justify-center items-end flex-wrap ">
+        <div className=" relative max-md:w-full md:w-3/5 h-[100vh] flex flex-col justify-center items-center ">
+          {/* video div */}
           <div
             ref={refSec}
-            className="w-[85%] h-[76%] border-2 border-black overflow-hidden"
+            className=" relative m-4 w-full max-w-[380px] sm:w-3/5 h-[76%] border-2 border-black overflow-hidden"
           >
-            <div className=" m-4 flex flex-col justify-center items-center gap-4">
+            <div className="m-2 flex flex-col justify-center items-center gap-4">
+              {/* arrow div  */}
+              <div className="bg-green-300/70 rounded-full flex justify-center items-center w-[100px] h-[100px] absolute -bottom-0 -left-0 z-50  ">
+                <motion.img
+                  animate={{
+                    // x: [0, 5, 0, 5, 0],
+                    scale: [0.9, 1.2, 0.9, 1.2, 0.9],
+                    // rotateY: [-20, 20, -20, 20, -20],
+                  }}
+                  transition={{
+                    duration: 3,
+                    ease: "easeInOut",
+                    repeat: Infinity,
+                    // repeatDelay: 1.2,
+                  }}
+                  onClick={inc}
+                  src={arrowR}
+                  alt="arrow left"
+                  className="rounded-full w-[70%] h-[70%] cursor-pointer"
+                />
+              </div>
               <div className=" max-w-[80%] h-auto m-4">
                 <video
-                  src={newV}
+                  src={dataDisplay.video}
                   type="video/mp4"
                   autoPlay
                   loop
@@ -49,17 +110,18 @@ const NewArrivals = () => {
         </div>
 
         {/* text div */}
-        <div className=" hidden md:flex justify-end items-end md:w-1/3 h-[100vh] bg-slate-100">
-          <motion.p
-            style={{ y: textAnimation }}
-            className="w-[70%] max-h-[380px]"
+        <motion.div
+          style={{ y: textAnimation }}
+          className=" my-4 flex justify-center items-end md:w-2/5 h-full p-4 bg-slate-700/40"
+        >
+          <p
+            className={`${
+              direction === "rtl" ? " font-arabicFont " : "font-body"
+            } w-[70%] max-h-[380px] p-4 `}
           >
-            We are very dedicated to making our products. We offer unique and
-            creative products to a wide range of people. We have a variety of
-            styles, but for most people, all of the options are in the box. We
-            specialize in making things that make you happy.
-          </motion.p>
-        </div>
+            {direction === "ltr" ? dataDisplay.desct : dataDisplay.desctAr}
+          </p>
+        </motion.div>
       </div>
     </section>
   );

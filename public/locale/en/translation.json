@@ -1,6 +1,6 @@
 {
   "navbar": {
-    "logo": "Beauty Shoses"
+    "logo": "Beauty Shoes"
   },
   "hero": {
     "subTitle1": "Quality",
@@ -25,5 +25,8 @@
     "desc3": "A touch of timeless elegance",
     "desc4": "Make every step a statement",
     "desc5": "Command attention without a word"
+  },
+  "newArv": {
+    "title": "New Arrivals"
   }
 }
