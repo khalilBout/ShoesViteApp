@@ -16,7 +16,7 @@ import Footer from "../component/Footer/Footer";
 
 const Index = () => {
   return (
-    <div className="myScrollbar">
+    <div className="">
       <Hero />
       <About />
       <Shop />
