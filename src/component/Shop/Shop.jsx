@@ -1,33 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useTranslation } from "react-i18next";
-
 import { useRef } from "react";
-import img4 from "../../assets/Images/4.webp";
-import img5 from "../../assets/Images/5.webp";
-import img6 from "../../assets/Images/6.webp";
-import img7 from "../../assets/Images/7.webp";
-import img8 from "../../assets/Images/8.webp";
-import img9 from "../../assets/Images/9.webp";
-import img10 from "../../assets/Images/10.webp";
-import img11 from "../../assets/Images/11.webp";
-import img12 from "../../assets/Images/12.webp";
-import img13 from "../../assets/Images/13.webp";
-import img14 from "../../assets/Images/14.webp";
-
 import logoV from "../../assets/logo.mp4";
-const dataImg = [
-  { title: "Jewellery", img: img4 },
-  { title: "Antiques", img: img5 },
-  { title: "Watches", img: img6 },
-  { title: "Special Edition", img: img7 },
-  { title: "Suits", img: img8 },
-  { title: "Blazers", img: img9 },
-  { title: "Tops", img: img10 },
-  { title: "Man Basics", img: img11 },
-  { title: "Ethnic Wear", img: img12 },
-  { title: "Sweatshirts", img: img13 },
-  { title: "Special Edition", img: img14 },
-];
 
 const Shop = () => {
   const refSec = useRef();
