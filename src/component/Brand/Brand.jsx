@@ -1,12 +1,13 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const Brand = () => {
   const ref = useRef();
 
   const { t } = useTranslation();
   const direction = window.document.dir;
+  useEffect(() => {}, [direction]);
 
   // Track scroll progress within the `ref` container
   const { scrollYProgress } = useScroll({

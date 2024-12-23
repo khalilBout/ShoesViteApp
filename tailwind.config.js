@@ -15,7 +15,7 @@ export default {
       //   xl: "1280px",
       // },
       fontFamily: {
-        title: ["Kaushan Script", "sans-serif"],
+        title: ["Kaushan Script", "Sirin Stencil", "sans-serif"],
         body: ["Sirin Stencil", "sans-serif"],
         arabicFont: ["Amiri", "sans-serif"],
       },

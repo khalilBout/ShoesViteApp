@@ -14,7 +14,9 @@ const Navbar = () => {
     window.document.dir = i18n.dir();
   };
   const leng = cookies.get("i18next") || "en";
-
+  const direction = window.document.dir;
+  useEffect(() => {}, [direction]);
+  console.log("direction:", direction);
   useEffect(() => {
     changeDir();
   }, [leng]);
