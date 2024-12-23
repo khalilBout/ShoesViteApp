@@ -37,7 +37,7 @@ const data = [
 const NewArrivals = () => {
   const { t } = useTranslation();
   const direction = window.document.dir;
-  console.log("direction new arvl: ", direction);
+  // console.log("direction new arvl: ", direction);
   const [count, setCount] = useState(0);
   const [dataDisplay, setDataDisplay] = useState(data[count]);
   const inc = () => {
@@ -47,7 +47,7 @@ const NewArrivals = () => {
   };
   useEffect(() => {
     setDataDisplay(data[count]);
-  }, [count]);
+  }, [count, direction]);
 
   const refSec = useRef();
   const { scrollYProgress } = useScroll({
@@ -119,9 +119,7 @@ const NewArrivals = () => {
               direction === "rtl" ? " font-arabicFont " : "font-body"
             } w-[90%] py-4 md:py-8 `}
           >
-            {direction === "ltr" || " "
-              ? dataDisplay.desct
-              : dataDisplay.desctAr}
+            {direction === "ltr" ? dataDisplay.desct : dataDisplay.desctAr}
           </p>
         </motion.div>
       </div>

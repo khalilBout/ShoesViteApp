@@ -1,11 +1,6 @@
-import {
-  motion,
-  useScroll,
-  useMotionValueEvent,
-  useTransform,
-} from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import mainImg from "../../assets/about/1.jpg";
 import firstImg from "../../assets/about/2.jpg";
 import scendImg from "../../assets/about/3.jpg";
@@ -26,6 +21,8 @@ const About = () => {
   const { t } = useTranslation();
   const direction = window.document.dir;
 
+  useEffect(() => {}, [direction]);
+
   return (
     <section
       ref={refSec}
@@ -45,11 +42,8 @@ const About = () => {
           <div
             className={`${
               direction === "rtl" ? " font-arabicFont " : "font-body"
-            } text-justify m-16 md:m:10 lg:px-8 max-h-full flex flex-col gap-1 md:gap-2 lg:w-1/2  font-medium text-[14px] md:text-[16px] justify-center items-center `}
+            } text-justify m-6 md:m-12 md:m:10 lg:px-8 max-h-full flex flex-col gap-1 md:gap-2 lg:w-1/2  font-medium text-[14px] md:text-[16px] justify-center items-center `}
           >
-            <motion.p initial={{}} className="">
-              {t("about.desc1")}
-            </motion.p>
             <p className="">{t("about.desc1")}</p>
             <p className="">{t("about.desc2")}</p>
             <p className="">{t("about.desc3")}</p>
