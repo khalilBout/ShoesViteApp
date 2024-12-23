@@ -16,9 +16,9 @@ const About = () => {
     target: refSec,
     offset: ["0 1", "1 0"], // تحديد اين يبدا التحريك ومتى ينتهي
   });
-  useMotionValueEvent(scrollYProgress, "change", (val) => {
-    console.log("scroll Progress:", val);
-  });
+  // useMotionValueEvent(scrollYProgress, "change", (val) => {
+  //   console.log("scroll Progress:", val);
+  // });
   const titleAnim = useTransform(scrollYProgress, [1, 0], ["150%", "-50%"]);
   const image1Anim = useTransform(scrollYProgress, [0, 1], ["-80%", "150%"]);
   const image2Anim = useTransform(scrollYProgress, [0, 1], ["200%", "-100%"]);
@@ -50,9 +50,9 @@ const About = () => {
             <motion.p initial={{}} className="">
               {t("about.desc1")}
             </motion.p>
+            <p className="">{t("about.desc1")}</p>
             <p className="">{t("about.desc2")}</p>
             <p className="">{t("about.desc3")}</p>
-            <p className="">{t("about.desc4")}</p>
           </div>
           {/* image div */}
           <div className="h-full w-full lg:w-1/2 relative flex justify-center items-center">

@@ -35,7 +35,7 @@ const Hero = () => {
   const direction = window.document.dir;
 
   return (
-    <section className="overflow-x-hidden h-[100vh] ">
+    <section className="overflow-x-hidden">
       <Navbar />
       <div className=" w-[100%] h-[100vh] relative">
         <video

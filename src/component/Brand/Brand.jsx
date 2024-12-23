@@ -25,7 +25,7 @@ const Brand = () => {
       // className=" overflow-x-hidden bg-slate-200 h-[100vh] w-full font-title overflow-hidden "
       className={`${
         direction === "rtl" ? " font-arabicFont " : "font-title"
-      } overflow-x-hidden bg-slate-200 h-[100vh] w-full  overflow-hidden `}
+      } overflow-x-hidden bg-slate-200 w-full py-12 overflow-hidden `}
     >
       <div
         ref={ref}

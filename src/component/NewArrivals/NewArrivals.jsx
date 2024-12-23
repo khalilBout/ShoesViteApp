@@ -37,7 +37,7 @@ const data = [
 const NewArrivals = () => {
   const { t } = useTranslation();
   const direction = window.document.dir;
-
+  console.log("direction new arvl: ", direction);
   const [count, setCount] = useState(0);
   const [dataDisplay, setDataDisplay] = useState(data[count]);
   const inc = () => {
@@ -73,9 +73,9 @@ const NewArrivals = () => {
           {/* video div */}
           <div
             ref={refSec}
-            className=" relative m-4 w-full max-w-[380px] sm:w-3/5 h-[76%] border-2 border-black overflow-hidden"
+            className="justify-center items-center relative m-4 max-w-[380px] my-2 border border-black overflow-hidden"
           >
-            <div className="m-2 flex flex-col justify-center items-center gap-4">
+            <div className="m-8 flex justify-center items-center">
               {/* arrow div  */}
               <div className="bg-green-300/70 rounded-full flex justify-center items-center w-[100px] h-[100px] absolute -bottom-0 -left-0 z-50  ">
                 <motion.img
@@ -96,13 +96,13 @@ const NewArrivals = () => {
                   className="rounded-full w-[70%] h-[70%] cursor-pointer"
                 />
               </div>
-              <div className=" max-w-[80%] h-auto m-4">
+              <div className=" ">
                 <video
                   src={dataDisplay.video}
                   type="video/mp4"
                   autoPlay
                   loop
-                  className="w-full h-full object-cover"
+                  className=" h-[370px] w-auto object-cover object-center"
                 />
               </div>
             </div>
@@ -112,14 +112,16 @@ const NewArrivals = () => {
         {/* text div */}
         <motion.div
           style={{ y: textAnimation }}
-          className=" my-4 flex justify-center items-end md:w-2/5 h-full p-4 bg-slate-700/40"
+          className=" flex justify-center items-end md:w-2/5 bg-slate-700/20"
         >
           <p
             className={`${
               direction === "rtl" ? " font-arabicFont " : "font-body"
-            } w-[70%] max-h-[380px] p-4 `}
+            } w-[90%] py-4 md:py-8 `}
           >
-            {direction === "ltr" ? dataDisplay.desct : dataDisplay.desctAr}
+            {direction === "ltr" || " "
+              ? dataDisplay.desct
+              : dataDisplay.desctAr}
           </p>
         </motion.div>
       </div>

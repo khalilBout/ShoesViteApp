@@ -64,27 +64,3 @@ const Shop = () => {
 };
 
 export default Shop;
-
-{
-  /* <div
-          ref={ref}
-          className=" h-[100vh] w-[100vw] md:w-2/3 overflow-hidden relative bg-blue-300"
-        >
-          <div className=" sticky top-0 flex items-center h-[100vh] mx-20 gap-4 -z-20 ">
-            {dataImg.map((elm, ind) => (
-              <motion.div
-                style={{ x }}
-                key={ind}
-                className="min-w-[240px] md:min-w[280px] flex flex-col justify-center items-center gap-2"
-              >
-                <img
-                  src={elm.img}
-                  alt="about img"
-                  className="w-[90%] w h-auto object-cover"
-                />
-                <h1 className="text-2xl font-body text-center">{elm.title}</h1>
-              </motion.div>
-            ))}
-          </div>
-        </div> */
-}

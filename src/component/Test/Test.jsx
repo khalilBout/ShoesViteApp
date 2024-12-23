@@ -49,7 +49,7 @@ const Test = () => {
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-120%"]);
 
   return (
-    <div ref={ref} className="h-[300vh] relative">
+    <div ref={ref} dir="ltr" className="h-[300vh] relative ml-8 md:ml-20">
       <div className="h-[65vh] sticky top-28 overflow-hidden ">
         <motion.div style={{ x }} className="flex gap-4 max-sm:w-[320vw]">
           {dataImg.map((elm, ind) => {

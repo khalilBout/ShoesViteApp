@@ -17,10 +17,17 @@ const Footer = () => {
 
   const Anim = useTransform(scrollYProgress, [1, 0], ["0%", "100%"]);
   const scale = useTransform(scrollYProgress, [1, 0], ["100%", "0"]);
+
+  // whatsApp Number
+  const message = `مرحبا `;
+  const encodedMessage = encodeURIComponent(message);
+  const whatsAppLink = `https://wa.me/213670000320?text=${encodedMessage}`;
+  // facebook  Link
+  const facebook = "https://www.facebook.com";
   return (
     <footer ref={refSec} className=" bg-slate-800 flex flex-col md:flex-row ">
       {/* map div  */}
-      <div className="h-full w-full md:w-1/3 md:p-8 relative">
+      <div dir="ltr" className="h-full w-full md:w-1/3 md:p-8 relative">
         <img
           //   style={{ x: Anim, scale }}
           src={map}
@@ -45,18 +52,30 @@ const Footer = () => {
         />
 
         <div className="m-8 px-4 absolute bottom-0 sm:bottom-4 left-0 right-0 bg-black/40 text-white">
-          <div className="flex gap-2  items-center font-semibold">
+          <a
+            href="https://maps.app.goo.gl/kjw77kKa7PUZuays5"
+            target="_blank"
+            className="flex gap-2  items-center font-semibold hover:scale-105 duration-200"
+          >
             <IoLocationSharp size={16} />
-            <p className="text-[15px]">elbahia orone alger</p>
-          </div>
-          <div className="flex gap-2 text-white items-center">
+            <p className="text-[15px]">Hai El Moudjahiddine Oran</p>
+          </a>
+          <a
+            href={facebook}
+            target="_blank"
+            className="flex gap-2 text-white items-center hover:scale-105 duration-200"
+          >
             <FaFacebookF size={16} />
             <p className="text-[15px]"> @Beauty-Shoes</p>
-          </div>
-          <div className="flex gap-2 text-white items-center">
+          </a>
+          <a
+            href={whatsAppLink}
+            target="_blank"
+            className="flex gap-2 text-white items-center hover:scale-105 duration-200"
+          >
             <FaWhatsapp size={16} />
             <p className="text-[15px]"> (+213) 556 254 336</p>
-          </div>
+          </a>
         </div>
       </div>
 
@@ -64,7 +83,7 @@ const Footer = () => {
       <div className="w-full md:w-2/3 grow ">
         <div className="w-full mt-8 flex justify-center">
           <motion.img
-            style={{ y: Anim, scale }}
+            style={{ scale }}
             src={logo}
             alt="logo"
             className="h-[90px] md:h-[120px] w-auto"
