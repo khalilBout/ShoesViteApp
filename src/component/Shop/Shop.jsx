@@ -2,11 +2,13 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { useRef } from "react";
 import logoV from "../../assets/logo.mp4";
+import cookies from "js-cookie";
 
 const Shop = () => {
   const refSec = useRef();
   const { t } = useTranslation();
-  const direction = window.document.dir;
+  // const direction = window.document.dir;
+  const leng = cookies.get("i18next") || "en";
 
   // Track scroll progress within the `ref` container
 
@@ -27,7 +29,7 @@ const Shop = () => {
         <motion.h1
           style={{ x: titleAnim }}
           className={`${
-            direction === "rtl" ? " font-arabicFont " : "font-title"
+            leng === "ar" ? " font-arabicFont " : "font-title"
           } text-yellow-400 text-6xl md:text-7xl lg:text-8xl xl:text-9xl absolute top-0 md:top-2  z-10 `}
           // className=""
         >
@@ -36,7 +38,7 @@ const Shop = () => {
         {/* Text content */}
         <div
           className={`${
-            direction === "rtl" ? " font-arabicFont " : "font-body"
+            leng === "ar" ? " font-arabicFont " : "font-body"
           } max-sm:pt-6 bg-slate-300 px-6 md:px-16 md:w-3/5 flex flex-col gap-2 md:gap-4 justify-center w-full h-[400px] md:h-[100vh] `}
         >
           <p className="text-[15px] md:text-[16px] font-medium ">

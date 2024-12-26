@@ -1,4 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
+import cookies from "js-cookie";
+
 import logo from "../../assets/siteLogo/lg.png";
 import map from "../../assets/map.png";
 import loc from "../../assets/loc.png";
@@ -24,6 +26,14 @@ const Footer = () => {
   const whatsAppLink = `https://wa.me/213670000320?text=${encodedMessage}`;
   // facebook  Link
   const facebook = "https://www.facebook.com";
+
+  const leng = cookies.get("i18next") || "en";
+  const linksData = [
+    { link: "Home", linkAr: "الرئيسية", href: "/" },
+    { link: "Serves", linkAr: "الخدمات", href: "/" },
+    { link: "Contact", linkAr: "الإتصال", href: "/" },
+  ];
+
   return (
     <footer ref={refSec} className=" bg-slate-800 flex flex-col md:flex-row ">
       {/* map div  */}
@@ -95,13 +105,19 @@ const Footer = () => {
         <div className="mx-8 my-4 flex flex-col gap-4">
           <hr></hr>
           <div className="flex gap-8 justify-around text-white font-title">
-            <motion.h2
-              style={{ x: Anim }}
-              className="text-xl md:text-2xl cursor-pointer"
-            >
-              Home{" "}
-            </motion.h2>
-            <motion.h2
+            {linksData.map((elm, ind) => (
+              <motion.h2
+                key={ind}
+                style={{ x: Anim }}
+                className={`${
+                  leng === "ar" ? " font-arabicFont " : "font-title"
+                } text-xl md:text-2xl cursor-pointer `}
+              >
+                {leng === "en" ? elm.link : elm.linkAr}
+              </motion.h2>
+            ))}
+
+            {/* <motion.h2
               style={{ x: Anim }}
               className="text-xl md:text-2xl cursor-pointer"
             >
@@ -112,7 +128,7 @@ const Footer = () => {
               className="text-xl md:text-2xl cursor-pointer"
             >
               Contact{" "}
-            </motion.h2>
+            </motion.h2> */}
           </div>
           <hr></hr>
         </div>

@@ -14,15 +14,19 @@ const Navbar = () => {
     window.document.dir = i18n.dir();
   };
   const leng = cookies.get("i18next") || "en";
-  const direction = window.document.dir;
-  useEffect(() => {}, [direction]);
-  console.log("direction:", direction);
+  // const direction = window.document.dir;
+  // useEffect(() => {}, [direction]);
+  // console.log("direction:", direction);
   useEffect(() => {
     changeDir();
   }, [leng]);
 
   const [showSidebar, setShowSidebar] = useState(false);
-
+  const linksData = [
+    { link: "Home", linkAr: "الرئيسية", href: "/" },
+    { link: "Serves", linkAr: "الخدمات", href: "/" },
+    { link: "Contact", linkAr: "الإتصال", href: "/" },
+  ];
   return (
     <nav className=" absolute z-40 top-0 left-0 w-full pt-10 text-white">
       <div className=" container">
@@ -158,24 +162,17 @@ const Navbar = () => {
             className=" flex justify-center items-center"
           >
             <div className=" font-body w-full sm:w-[70%] sm:rounded-full my-2 py-2 bg-slate-100/40 flex justify-center items-center gap-4 max-sm:flex-col">
-              <a
-                href="/"
-                className=" hover:bg-blue-200 max-sm:w-full cursor-pointer text-center px-4 py-1 rounded-2xl text-black font-medium"
-              >
-                Home
-              </a>
-              <a
-                href="/"
-                className=" hover:bg-blue-200 max-sm:w-full cursor-pointer text-center px-4 py-1 rounded-2xl text-black font-medium"
-              >
-                Serves
-              </a>
-              <a
-                href="/"
-                className=" hover:bg-blue-200 max-sm:w-full cursor-pointer text-center px-4 py-1 rounded-2xl text-black font-medium"
-              >
-                Contact
-              </a>
+              {linksData.map((elm, ind) => (
+                <a
+                  key={ind}
+                  href={elm.href}
+                  className={`${
+                    leng === "ar" ? " font-arabicFont " : "font-title"
+                  }hover:bg-blue-200 max-sm:w-full cursor-pointer text-center px-4 py-1 rounded-2xl text-black font-medium `}
+                >
+                  {leng === "en" ? elm.link : elm.linkAr}
+                </a>
+              ))}
             </div>
           </motion.div>
         )}

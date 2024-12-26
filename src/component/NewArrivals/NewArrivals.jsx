@@ -6,6 +6,7 @@ import video1 from "../../assets/newCol/01.mp4";
 import video2 from "../../assets/newCol/02.mp4";
 import video3 from "../../assets/newCol/03.mp4";
 import { useState } from "react";
+import cookies from "js-cookie";
 
 const data = [
   {
@@ -36,7 +37,9 @@ const data = [
 
 const NewArrivals = () => {
   const { t } = useTranslation();
-  const direction = window.document.dir;
+  // const direction = window.document.dir;
+  const leng = cookies.get("i18next") || "en";
+
   // console.log("direction new arvl: ", direction);
   const [count, setCount] = useState(0);
   const [dataDisplay, setDataDisplay] = useState(data[count]);
@@ -47,7 +50,7 @@ const NewArrivals = () => {
   };
   useEffect(() => {
     setDataDisplay(data[count]);
-  }, [count, direction]);
+  }, [count]);
 
   const refSec = useRef();
   const { scrollYProgress } = useScroll({
@@ -63,7 +66,7 @@ const NewArrivals = () => {
       <motion.h1
         style={{ x: Anim }}
         className={`${
-          direction === "rtl" ? " font-arabicFont " : "font-title"
+          leng === "ar" ? " font-arabicFont " : "font-title"
         } text-5xl md:text-6xl lg:text-7xl xl:text-7xl  text-black absolute top-0 left-4 z-10 `}
       >
         {t("newArv.title")}
@@ -116,10 +119,10 @@ const NewArrivals = () => {
         >
           <p
             className={`${
-              direction === "rtl" ? " font-arabicFont " : "font-body"
+              leng === "ar" ? " font-arabicFont " : "font-body"
             } w-[90%] py-4 md:py-8 `}
           >
-            {direction === "ltr" ? dataDisplay.desct : dataDisplay.desctAr}
+            {leng === "en" ? dataDisplay.desct : dataDisplay.desctAr}
           </p>
         </motion.div>
       </div>

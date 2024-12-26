@@ -1,6 +1,8 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
+import cookies from "js-cookie";
+
 import mainImg from "../../assets/about/1.jpg";
 import firstImg from "../../assets/about/2.jpg";
 import scendImg from "../../assets/about/3.jpg";
@@ -19,9 +21,8 @@ const About = () => {
   const image2Anim = useTransform(scrollYProgress, [0, 1], ["200%", "-100%"]);
   //   console.log("scrollYProgress:", scrollYProgress);
   const { t } = useTranslation();
-  const direction = window.document.dir;
-
-  useEffect(() => {}, [direction]);
+  // const direction = window.document.dir;
+  const leng = cookies.get("i18next") || "en";
 
   return (
     <section
@@ -32,7 +33,7 @@ const About = () => {
         <motion.h1
           style={{ x: titleAnim }}
           className={`${
-            direction === "rtl" ? " font-arabicFont " : "font-title"
+            leng === "ar" ? " font-arabicFont " : "font-title"
           } text-6xl md:text-7xl lg:text-8xl xl:text-9xl  text-black absolute top-0 md:top-2  z-10`}
         >
           {t("about.title")}
@@ -41,7 +42,7 @@ const About = () => {
           {/* text div */}
           <div
             className={`${
-              direction === "rtl" ? " font-arabicFont " : "font-body"
+              leng === "ar" ? " font-arabicFont " : "font-body"
             } text-justify m-6 md:m-12 md:m:10 lg:px-8 max-h-full flex flex-col gap-1 md:gap-2 lg:w-1/2  font-medium text-[14px] md:text-[16px] justify-center items-center `}
           >
             <p className="">{t("about.desc1")}</p>

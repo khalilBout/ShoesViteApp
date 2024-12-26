@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 // import { motion } from "framer-motion";
 import Navbar from "../Navbar/Navbar";
 import { motion } from "framer-motion";
+import cookies from "js-cookie";
 
 import vidWalkingGirl from "../../assets/Walking Girl.mp4";
 
@@ -32,7 +33,8 @@ const containerVariants = {
 
 const Hero = () => {
   const { t } = useTranslation();
-  const direction = window.document.dir;
+  // const direction = window.document.dir;
+  const leng = cookies.get("i18next") || "en";
 
   return (
     <section className="overflow-x-hidden">
@@ -82,7 +84,7 @@ const Hero = () => {
                 delay: 1.4,
               }}
               className={`${
-                direction === "rtl" ? " font-arabicFont " : "font-title"
+                leng === "ar" ? " font-arabicFont " : "font-title"
               } flex gap-2 justify-center items-center text-xl sm:text-2xl md:text-3xl `}
             >
               <span>{t("hero.subTitle1")} .</span>

@@ -1,13 +1,14 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { useEffect, useRef } from "react";
+import cookies from "js-cookie";
 
 const Brand = () => {
   const ref = useRef();
 
   const { t } = useTranslation();
-  const direction = window.document.dir;
-  useEffect(() => {}, [direction]);
+  // const direction = window.document.dir;
+  const leng = cookies.get("i18next") || "en";
 
   // Track scroll progress within the `ref` container
   const { scrollYProgress } = useScroll({
@@ -25,7 +26,7 @@ const Brand = () => {
     <div
       // className=" overflow-x-hidden bg-slate-200 h-[100vh] w-full font-title overflow-hidden "
       className={`${
-        direction === "rtl" ? " font-arabicFont " : "font-title"
+        leng === "ar" ? " font-arabicFont " : "font-title"
       } overflow-x-hidden bg-slate-200 w-full py-12 overflow-hidden `}
     >
       <div
